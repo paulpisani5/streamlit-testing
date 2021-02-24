@@ -1,2 +1,3 @@
 pandas
 top2vec
+st-annotated-text
