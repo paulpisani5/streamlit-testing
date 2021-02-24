@@ -5,9 +5,9 @@ import pandas as pd
 import numpy as np
 import altair as alt
 from streamlit.report_thread import get_report_ctx
-from sqlalchemy import create_engine
+# from sqlalchemy import create_engine
 from datetime import datetime 
-import json
+# import json
 import os
 
 import base64
@@ -17,12 +17,12 @@ from io import BytesIO
 import math
 
 
-def extract_photo_url(json_field):
-    dict_field = json.loads(json_field)
-    if 'photo' in dict_field:
-        return dict_field['photo']
-    else:
-        return 'https://docs.microsoft.com/en-us/windows/win32/uxguide/images/mess-error-image4.png'
+# def extract_photo_url(json_field):
+#     dict_field = json.loads(json_field)
+#     if 'photo' in dict_field:
+#         return dict_field['photo']
+#     else:
+#         return 'https://docs.microsoft.com/en-us/windows/win32/uxguide/images/mess-error-image4.png'
 
 # def refresh_tables():
 
@@ -106,7 +106,7 @@ def load_activities_fast(topic_id, activity_count):
 def load_activities(topic_id, activity_count):
 
     activities = pd.read_csv('activities_export_TEST.csv', low_memory=False)
-    activities['photo_url'] = activities['details'].apply(lambda x: extract_photo_url(x))
+#     activities['photo_url'] = activities['details'].apply(lambda x: extract_photo_url(x))
     relevant_columns = [
         'uid',
         'title',
@@ -117,7 +117,7 @@ def load_activities(topic_id, activity_count):
         'total_first_time_enrollment',
         'age_min',
         'age_max',
-        'photo_url',
+#         'photo_url',
         'tokens',
         'topic_0_id_global',
         'topic_0_score_global',
@@ -171,9 +171,9 @@ def load_activity_stats(topic_id):
     return stats_filtered
 
 @st.cache
-def load_image(activity_url, photo_url):
-    html = "<a href='{url}'><img src='{src}' width='300'></a>".format(url=activity_url, src=photo_url)
-    return html
+# def load_image(activity_url, photo_url):
+#     html = "<a href='{url}'><img src='{src}' width='300'></a>".format(url=activity_url, src=photo_url)
+#     return html
 
 def load_topic():
     df = pd.read_csv('topic_labels_w_description.csv')
@@ -285,9 +285,9 @@ def load_topic():
         row = activity_set.iloc[i]
         activity_url = 'http://www.outschool.com/classes/' + row['uid']
         col1, col2 = st.beta_columns(2)
-        with col1:
-            photo_url = row['photo_url']
-            st.markdown(load_image(activity_url, photo_url), unsafe_allow_html=True)
+#         with col1:
+#             photo_url = row['photo_url']
+#             st.markdown(load_image(activity_url, photo_url), unsafe_allow_html=True)
             # html = "<a href='{url}'><img src='{src}' width='300'></a>".format(url=activity_url, src=photo_url)
             # st.markdown(html, unsafe_allow_html=True)  
             
