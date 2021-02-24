@@ -1,3 +1,13 @@
 pandas
+numpy
 top2vec
 st-annotated-text
+datetime
+json
+os
+
+base4
+PIL
+requests
+io
+math
