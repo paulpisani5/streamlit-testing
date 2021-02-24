@@ -4,7 +4,6 @@ top2vec
 st-annotated-text
 datetime
 orjson
-os
 
 base4
 PIL
