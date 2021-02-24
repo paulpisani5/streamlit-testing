@@ -105,8 +105,8 @@ def load_activities_fast(topic_id, activity_count):
 @st.cache
 def load_activities(topic_id, activity_count):
 
-    activities = pd.read_csv('activities_export_TEST.csv', low_memory=False)
-#     activities['photo_url'] = activities['details'].apply(lambda x: extract_photo_url(x))
+    activities = pd.read_csv('activities_export.csv', low_memory=False)
+    # activities['photo_url'] = activities['details'].apply(lambda x: extract_photo_url(x))
     relevant_columns = [
         'uid',
         'title',
@@ -117,7 +117,7 @@ def load_activities(topic_id, activity_count):
         'total_first_time_enrollment',
         'age_min',
         'age_max',
-#         'photo_url',
+        # 'photo_url',
         'tokens',
         'topic_0_id_global',
         'topic_0_score_global',
@@ -170,7 +170,7 @@ def load_activity_stats(topic_id):
     stats_filtered = stats[stats['topic_id'] == topic_id]
     return stats_filtered
 
-@st.cache
+# @st.cache
 # def load_image(activity_url, photo_url):
 #     html = "<a href='{url}'><img src='{src}' width='300'></a>".format(url=activity_url, src=photo_url)
 #     return html
@@ -285,9 +285,10 @@ def load_topic():
         row = activity_set.iloc[i]
         activity_url = 'http://www.outschool.com/classes/' + row['uid']
         col1, col2 = st.beta_columns(2)
-#         with col1:
-#             photo_url = row['photo_url']
-#             st.markdown(load_image(activity_url, photo_url), unsafe_allow_html=True)
+        with col1:
+            # photo_url = row['photo_url']
+            # st.markdown(load_image(activity_url, photo_url), unsafe_allow_html=True)
+            st.markdown("test")
             # html = "<a href='{url}'><img src='{src}' width='300'></a>".format(url=activity_url, src=photo_url)
             # st.markdown(html, unsafe_allow_html=True)  
             
