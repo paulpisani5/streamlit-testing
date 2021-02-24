@@ -3,7 +3,7 @@ numpy
 top2vec
 st-annotated-text
 datetime
-json
+orjson
 os
 
 base4
